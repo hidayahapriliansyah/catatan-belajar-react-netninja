@@ -31,3 +31,9 @@ untuk menjalan json servernya, jalankan :
 lalu kita nanti bakal punya resource deh :
     Resources
   http://localhost:8000/blogs
+
+lalu kita nanti bakal punya end point :
+/blogs GET fetch all blogs
+/blogs/{id} GET fetch blog by id
+/blogs POST add new blog 
+/blogs/{id} DELETE delete a blog
