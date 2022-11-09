@@ -1,0 +1,11 @@
+useEffect akan berjalan setiap kali ada render ...
+tapi katanya ini bermasalah ... ada kelemahannya ...
+
+cara bikin :
+      useEffect(() => {
+      console.log('use effect ran');
+      console.log(blogs);
+    })
+
+tapi panggil dulu :
+    import { useState, useEffect } from "react";
