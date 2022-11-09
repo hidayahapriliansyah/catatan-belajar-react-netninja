@@ -1,0 +1,1 @@
+si template {} gak bisa ngereturn object sama float

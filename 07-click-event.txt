@@ -1,0 +1,22 @@
+bisa lah dimengerti :
+
+const handleClick = (e) => {
+    console.log('Hello', e);
+  }
+
+  const handleClickAgain = (name, e) => {
+    console.log('Hello Again ', name, e.target.innerText);
+  }
+
+  return (
+    <section className="home">
+      <h1 className="title">App React</h1>
+      <p>{name}</p>
+      <p>Umur {age}</p>
+      <p>Test array {array} </p>
+      <a href={link}>Google Link</a>
+      <br />
+      <button onClick={handleClick}>Click Me</button>
+      <button onClick={(e) => handleClickAgain('Adi', e)}>Click Me Again</button>
+    </section>
+  );

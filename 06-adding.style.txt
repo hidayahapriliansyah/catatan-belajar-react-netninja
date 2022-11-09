@@ -1,0 +1,14 @@
+<a
+          href="/create"
+          style={{
+            color: 'white',
+            backgroundColor: '#f1356d',
+            borderRadius: '0.5em',
+          }}
+        >
+
+intinya value di jsx itu pakai curly braces,
+nah kalau mau nyisipin style pakai object js.
+
+terus si app itu sebenarnya kan ngeimport index.css,
+jadi kita bisa bikin style nya disitu terus import ..
