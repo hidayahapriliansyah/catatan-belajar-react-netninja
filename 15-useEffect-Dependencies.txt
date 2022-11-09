@@ -1,0 +1,17 @@
+sebelumnya kita tahu kalau useEffect itu jalan di setiap render.
+
+Nah dengan menambahkan argumen array dalam useEffect, kita bisa
+nentuin useEffect mau jalannya tiap render apa sih ....
+
+contoh kita punya useState name :
+    const [name, setName] = useState('Hidayah');
+
+terus kita jalanin tiap ngelik button change name 
+      <button onClick={() => setName('Adi')}>Change Name</button>
+      <p>{name}</p>
+
+Nah, si use effecnya dikasih array yang dalemnya ada name deh :
+    useEffect(() => {
+      console.log('use effect ran');
+      console.log(blogs);
+    }, [name]);
