@@ -1,0 +1,9 @@
+Reusing component by different props.
+Pakai component bloglists lagi. Props nya sama dari blog si cuman difilter. Si HOme jadi kayak gini :
+    return (
+    <section className="home">
+      <BlogLists blogs={blogs} title="All post" />
+      <BlogLists blogs={blogs.filter((blog) => blog.author === 'Adi' )} title="Adi's post" />
+    </section>
+  );
+
