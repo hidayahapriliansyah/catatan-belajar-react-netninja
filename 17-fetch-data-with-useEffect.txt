@@ -1,0 +1,32 @@
+INI GG PARAH!
+
+pertama kita set blogsnya jadi null :
+    const [blogs, setBlogs] = useState(null);
+
+karena kita udah bikin servernya kita bisa ngefetch datanya pake useEffect :
+    useEffect(() => {
+      fetch('http://localhost:8000/blogs')
+        .then(response => {
+          return response.json();
+        })
+        .then(data => {
+          setBlogs(data);
+        });
+    }, []);
+
+Nah kan si blogs sekarang udah di overide isinya pake setBLogs
+yang isinya data blogs, yang artinya di rendering component
+bloglists si blogs udah bisa dibikin props karena isinya udah gak null lagi
+jadi bakal jalan 
+    <BlogLists blogs={blogs} title="All post" />
+
+tapi yang terjadi ternyata malah error katanya map gak bisa ngemap null,
+yang mana si map itu kan harusnya ngemap array blogs, kenapa?
+itu karena sebenernya yang dibaca sebagai blogs itu masih blogs yang null
+yang petnaya di useState. Nah buat ngerubah si blogs itu isinya sesuai dari
+setBlogs(data) maka kita bkin :
+    {blogs && <BlogLists blogs={blogs} title="All post" />}
+
+jadi dibikin perbandingan heula. si blogs nu pertama eta bakal ngabaca sebagai blogs
+useState, pas pertama mah null, tapi pas jalan useEffectna kan ngeset, jadi aya isian 
+nu mana lamun aya isian eta artina true. jalan we.
