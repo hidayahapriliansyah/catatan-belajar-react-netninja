@@ -1,0 +1,1 @@
+sfc = stateless function component ini dari simple react snippet

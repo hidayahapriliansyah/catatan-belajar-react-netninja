@@ -1,0 +1,7 @@
+di route root pake exact
+    <Route exact path="/">
+
+karenan nanti kan ada /create atau yang lainnya,
+kalau gak pake exact si /create bakal di anggap / karena
+ada bagian '/' nya kan di '/create' itu. Jadi exact itu nandain
+kalau bener bener '/' doang baru arahin ke route yang itu 
