@@ -1,0 +1,63 @@
+fetch('http://localhost:8000/blogs')
+        .then(response => {
+          response ini ngambil apapun respon dari si resource nya,
+          mau isinya kayak gimana ke, mau ok atau enggak.
+          Intinya then yang ini akan jalan kalau si resource nya itu,
+          response nya itu response resource nya mau apapun response nya ...
+          console.log(response);
+          return response.json();
+        })
+        .then(data => {
+          setBlogs(data);
+          setIsPending(false);
+        })
+        .catch(err => {
+          console.log(err.message);
+        });
+    }, 1000);
+
+kita bikin useState error :   
+    const [error, setError] = useState(null);
+
+kita ambil errornya di catch fetch :
+    
+        .catch(err => {
+          setIsPending(false);
+          setError(err.message);
+          // setBlogs(null);
+        });
+
+terus di response fetch yang pertama kita bikin
+logic throw error kalau response nya gak ok.
+    .then(response => {
+      if(!response.ok) {
+        throw Error('Connected to resource but response not ok!');
+      }
+      return response.json();
+    })
+
+si useEffect akhirnya jadi gini :
+      useEffect(() => {
+    setTimeout(() => {
+      fetch('http://localhost:8000/blogss')
+        .then(response => {
+          if(!response.ok) {
+            throw Error('Connected to resource but response not ok!');
+          }
+          return response.json();
+        })
+        .then(data => {
+          setBlogs(data);
+          setIsPending(false);
+          setError(null);
+        })
+        .catch(err => {
+          setIsPending(false);
+          setError(err.message);
+          // setBlogs(null);
+        });
+    }, 1000);
+  }, []);
+
+kita render deh errornya :
+    {error && <div>{ error }</div>}
