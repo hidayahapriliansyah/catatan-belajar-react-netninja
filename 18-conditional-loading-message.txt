@@ -1,0 +1,22 @@
+ini keren aww ...
+
+impove dari nambahin useState yang ngehasilin loading ...
+      const [isPending, setIsPending] = useState(true);
+
+terus direturnnya kita tambahin loading :
+      {isPending && <div>Loading ... </div>}
+
+terus di useEffectnya kita setIsPending nya jadi false :
+
+    useEffect(() => {
+      setTimeout(() => {
+        fetch('http://localhost:8000/blogs')
+          .then(response => {
+            return response.json();
+          })
+          .then(data => {
+            setBlogs(data);
+            setIsPending(false);
+          });
+      }, 1000);
+    }, []);
