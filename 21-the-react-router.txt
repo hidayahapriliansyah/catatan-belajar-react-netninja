@@ -1,0 +1,45 @@
+ini konsepnya ada di video nya ...
+
+pertama kita butuh nginstal npm react-router-dom dulu,
+katanya pake yang versi 5 dulu karena yang versi 6 nya belum
+stabli, tapi itu kan januari 2021. biar mudah tuturkeun heula sesuai
+video we :
+    npm install react-router-dom@5
+
+setelah itu kita pergi ke file App.js di mana kita 
+ngumpulin semua komponen buat dirender di situ. 
+Kita import react-router-dom nya :
+    import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+si function App isinya jadi kayak gini :
+    function App() {
+      const name = 'Muhamad Adi';
+      const age = 21;
+      const array = [1, 2, 4];
+      const link = 'http://www.google.com/';
+
+      return (
+        <Router>
+          <div className="App">
+            <Navbar />
+            <div className="content">
+                <Switch>
+                  <Route path="/">
+                    <Home name={name} age={age} array={array} link={link} />
+                  </Route>
+                </Switch>
+            </div>
+          </div>
+        </Router>
+      );
+    }
+
+susunan nya itu 
+ <Router>
+  <Switch>
+    <Route path="">
+        <Home name={name} age={age} array={array} link={link} />
+    </Route>
+  </Switch>
+ </Router>
+
