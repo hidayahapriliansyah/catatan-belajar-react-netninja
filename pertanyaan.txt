@@ -1,1 +1,4 @@
 Kenapa punya saya si useEffect nya jalan 2 kali?
+
+Kenapa punya saya si useEffect nya jalan 2 kali? pertanyaan ieu diulang karena
+ngaruh kana fetch aborted. lumayan rada paham intina mah ...

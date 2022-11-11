@@ -1,0 +1,43 @@
+kita pakai AbortController(). 
+
+dokumentasina ieu :
+    https://developer.mozilla.org/en-US/docs/Web/API/AbortController
+
+si useEffect Fetch na jadi kieu :
+    useEffect(() => {
+    const abortCont = new AbortController();
+    // ngeinstance abort.
+
+    setTimeout(() => {
+      fetch(url, { signal: abortCont.signal })
+      // nah si signal abort tina dimasukkeun jadi parameter
+      // di fetch supaya engke pas sifetch da di abort, si fetch teh ngeuh manehna dibatalkeun, terus 
+      // ngasih informasi abort eta berupa error. error name nama AbortError.
+        .then(response => {
+          if(!response.ok) {
+            throw Error('Connected to resource but response not ok!');
+          }
+          return response.json();
+        })
+        .then(data => {
+          setData(data);
+          setIsPending(false);
+          setError(null);
+        })
+        .catch(err => {
+          if(err.name === 'AbortError') {
+            // nah lamun aya name.abort error tangkap
+            // console error na.
+            // terus si useState na ulah dijalankeun 
+            // matak diteuneun dina else ge.
+            console.log('fetch aborted');
+          } else {
+            setIsPending(false);
+            setError(err.message);
+          }
+        });
+    }, 500);
+
+    return () => abortCont.abort();
+    // return we si abortna mun aya abort teh.
+  }, [url]);
