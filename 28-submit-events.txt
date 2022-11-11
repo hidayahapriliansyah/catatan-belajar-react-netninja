@@ -1,0 +1,13 @@
+uhuy ...
+
+kita bikin objek blog dari setiap input yang dimasukkin ...
+
+tambahin event onSubmit di form :
+    <form onSubmit={handleSubmit}>
+
+buat handle nya :
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      const blog = {title, body, author};
+      console.log(blog);
+    }
