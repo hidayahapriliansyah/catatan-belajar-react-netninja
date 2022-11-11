@@ -1,0 +1,21 @@
+Kita bakal make useFetch di BlogDetail 
+
+const BlogDetail = () => {
+  const { id } = useParams();
+  const {error, isPending, data: blog} = useFetch('http://localhost:8000/blogs/' + id);
+  // nah, si urlnya ditambahin parameter id, nanti datanya
+  // otomatis udah difilter berdasarkan id tersebut
+
+  return (
+    <div className="blog-detail">
+      { error && <div>{ error }</div>}
+      { isPending && <div>Loading... </div>}
+      { blog && (<article>
+        <h2>{ blog.title }</h2>
+        <p>written by : { blog.author }</p>
+        <div>{ blog.body }</div>
+      </article>)}
+    </div>
+  );
+}
+ 
