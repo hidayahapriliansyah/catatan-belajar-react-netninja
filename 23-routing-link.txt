@@ -1,0 +1,17 @@
+ini ngebuat si anchor yang diteken itu gak ngirim request
+ke server buat ngebalikin halaman sesuai yang route nya,
+tapi malah nge request ke si react bundle nya buat ngerender
+halamannya. jadi gak ada tuh pas neken anchor, ngirim
+request ke server terus ngirim response gak ada.
+lansung dari si react js bundle nya. ini jad cepet ...
+
+tapi masalahnay kalau di home misal ada useFetch kayak divideo pokokna mah,
+eta jadi masalah karena ketika di /home kan terdapat hook nya,
+sedangkan pas pindah ka /create eta masih dina render js nu sama ..
+katanya warnig can't perform react kitu lah ..
+
+imort dulu linknya :
+    import { Link }  from 'react-router-dom';
+
+anchor nya jadi gini :
+    <Link to="/">Home</Link>
