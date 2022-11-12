@@ -1,0 +1,28 @@
+kita ubah handleSubmitnya ! 
+
+  
+  const [isPending, setIsPending] = useState(false);
+  // ini buat simple animasi adding blog ...
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const blog = {title, body, author};
+    
+    setIsPending(true);
+
+    fetch('http://localhost:8000/blogs',{
+      method: 'POST',
+      headers: { "Content-Type": "application/json"},
+      body: JSON.stringify(blog)
+      // pas nge fetch kita ambil kita pake method post, terus isi headernya,
+      // bawa body nya
+    }).then(()=> {
+      console.log('new blog added');
+      setIsPending(false);
+    })
+  }
+
+
+ini animasinya :
+    {!isPending && <button>Add blog</button>}
+    {isPending && <button>Adding blog ... </button>}
