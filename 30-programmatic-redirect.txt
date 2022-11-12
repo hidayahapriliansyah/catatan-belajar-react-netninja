@@ -1,0 +1,12 @@
+Kita ngeredirect ke home setelah berhasil nambah post ...
+
+panggil hook nya :
+    import { useHistory } from "react-router-dom";
+
+bikin variable hooknya :
+    const history = useHistory();
+
+setelah success nambah blog push deh :
+    history.push('/');
+
+useHistory masih punya method yang lain kayak go tapi itu belum kita pakai sekarang .
