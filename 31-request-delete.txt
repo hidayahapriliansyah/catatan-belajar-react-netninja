@@ -1,0 +1,15 @@
+Kita bikin button buat ngehapus di halaman blog detail
+    <button onClick={handleDelete}>Delete</button>
+
+ini handleDeletenya :
+    const handleDelete = () => {
+    alert(`Yakin akan menghapus ${blog.title}?`);
+
+    fetch('http://localhost:8000/blogs/' + id, 
+    {
+      method: 'DELETE'
+    }).then(() => {
+      alert('Blog berhasil dihapus');
+      history.push('/');
+    });
+  }
